@@ -26,21 +26,21 @@ class CarroController extends Controller
     
     public function edit($id)
     {
-        $dono = Carro::findOrFail($id);
-        return view('carro.edit', compact('dono'));
+        $carro = Carro::findOrFail($id);
+        return view('carro.edit', compact('carro'));
     }
     
     public function update(Request $request, $id)
     {
-        $dono = Carro::findOrFail($id);
-        $dono->update($request->all());
+        $carro = Carro::findOrFail($id);
+        $carro->update($request->all());
         return redirect('carros')->with('success', 'Carro updated successfully.');
     }
     
     public function destroy($id)
     {
-        $dono = Carro::findOrFail($id);
-        $dono->delete();
+        $carro = Carro::findOrFail($id);
+        $carro->delete();
         return redirect('carros')->with('success', 'Carro deleted successfully.');
     }
 }
